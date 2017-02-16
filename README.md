@@ -22,13 +22,13 @@ Add this to an initializer or your application configuration:
 
 ```ruby
   Rails.application.config.middleware.use OmniAuth::Builder do
-    provider :frontapp, ENV['frontapp_key'], ENV['frontapp_secret']
+    provider :frontapp, ENV['frontapp_id'], ENV['frontapp_secret']
   end
 ```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/omniauth-producthunt/fork )
+1. Fork it ( https://github.com/[my-github-username]/omniauth-frontapp/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
