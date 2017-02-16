@@ -1,15 +1,13 @@
-# Omniauth::Producthunt
+# Omniauth::Frontapp
 
-Omniauth strategy for Producthunt.
-It sets the scope to `private+public` so that authenticated user's details can be obtained.
-By default `public` scope will not grant access to these details.
+Omniauth strategy for Frontapp.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-  gem 'omniauth-producthunt', git: 'https://github.com/lukaszkorecki/omniauth-producthunt.git'
+  gem 'omniauth-frontapp', git: 'https://github.com/MarketaAdamova/omniauth-frontapp.git'
 ```
 
 And then execute:
@@ -24,16 +22,9 @@ Add this to an initializer or your application configuration:
 
 ```ruby
   Rails.application.config.middleware.use OmniAuth::Builder do
-    provider :producthunt, ENV['producthunt_key'], ENV['producthunt_secret']
+    provider :frontapp, ENV['frontapp_key'], ENV['frontapp_secret']
   end
 ```
-or with Devise
-
-```ruby
-  config.omniauth :producthunt, ENV['producthunt_key'], ENV['producthunt_secret'], callback_url: 'http://example.com/users/auth/producthunt/callback'
-```
-**Starting from version 1.4 in omniauth-oauth2 you must provide same callback url you have provided on API dashboard otherwise authentication won't work.**
-
 
 ## Contributing
 
