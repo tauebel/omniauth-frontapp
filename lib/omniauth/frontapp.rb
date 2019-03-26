@@ -7,22 +7,21 @@ module OmniAuth
       option :name, 'frontapp'
 
       option :client_options,
-             site: 'https://app.frontapp.com',
+             site: 'https://api2.frontapp.com',
              authorize_url: 'https://app.frontapp.com/oauth/authorize',
              token_url: 'https://app.frontapp.com/oauth/token'
-     
-      #def authorize_params
-      #  super.tap do |p|
-      #      p[:redirect_uri] = 'https://local.dev/auth/frontapp/callback'
-      #  end
-      #end
-   
-      #def token_params
-      #  super.tap do |p|
-      #      p[:redirect_uri] = 'https://local.dev/auth/frontapp/callback'
-      #  end
-      #end
-       
+
+      def callback_url
+        options[:redirect_uri] || (full_host + script_name + callback_path)
+      end
+      
+      def raw_info
+        @raw_info ||= access_token.get('/me').parsed
+      end
+
+      extra do
+        { 'raw_info' => raw_info }
+      end
     end
   end
 end
